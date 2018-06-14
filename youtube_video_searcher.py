@@ -12,6 +12,9 @@ from oauth2client.tools import argparser
 # threading
 from threading import Thread
 
+from pprint import pprint
+
+import re
 
 import sys
 reload(sys)
@@ -58,7 +61,12 @@ def youtube_search(query, pageToken=None, page=0):
     # matching videos, channels, and playlists.
     for search_result in search_response.get("items", []):
         if search_result["id"]["kind"] == "youtube#video":
-            videos.append(search_result["id"]["videoId"])
+            #pprint(search_result)
+            title = search_result["snippet"]["title"]
+
+            if re.sub(u'[^а-яё]', '',  title).strip() != "":
+                #print title
+                videos.append(search_result)    
         
 
     #print "Videos:\n", "\n".join(videos), "\n"
@@ -72,4 +80,43 @@ def youtube_search(query, pageToken=None, page=0):
     return videos
 
 if __name__ == "__main__":
-    print youtube_search("пиджак")
+
+    with open("yt_rus_vids-{date:%Y-%m-%d %H:%M:%S}.txt".format(date=datetime.datetime.now()), 'w') as out_f:
+        with open('word_rus.txt', 'r') as fp:
+            lines = fp.readlines()
+
+            total_ids_found = 0
+            searches_count = 0
+
+            all_video_ids = []
+
+
+            limit = 100
+
+            for l in lines:
+                results = youtube_search(l)
+                video_ids = [x["id"]["videoId"] for x in results if x["id"]["videoId"] not in all_video_ids]
+
+                for vid_id in video_ids:
+                    out_f.write("%s\n" % vid_id)
+
+                out_f.flush()
+
+
+                all_video_ids += video_ids
+                total_ids_found += len(results)
+                searches_count += 1
+                print "%i searches, %i videos found, avg videos per query: %.2f " % (searches_count, total_ids_found, float(total_ids_found) / searches_count)
+
+                #if searches_count > limit:
+                #    break
+
+            print all_video_ids
+
+
+
+
+
+
+
+
