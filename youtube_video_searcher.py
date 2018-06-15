@@ -15,6 +15,8 @@ from threading import Thread
 from pprint import pprint
 
 import re
+from time import time
+import os
 
 import sys
 reload(sys)
@@ -81,37 +83,86 @@ def youtube_search(query, pageToken=None, page=0):
 
 if __name__ == "__main__":
 
-    with open("yt_rus_vids-{date:%Y-%m-%d %H:%M:%S}.txt".format(date=datetime.datetime.now()), 'w') as out_f:
-        with open('word_rus.txt', 'r') as fp:
-            lines = fp.readlines()
+    output_videos_file = "yt_rus_vids.txt"
+    processed_words_file = 'processed_words.txt'
+    dictionary_file = 'word_rus.txt'
 
-            total_ids_found = 0
-            searches_count = 0
+    all_video_ids = []
+    dict_lines = []
+    processed_lines = []
 
-            all_video_ids = []
+    # read saved data
+    with open(output_videos_file, 'r') as vids_f:
+        all_video_ids = [x.strip() for x in vids_f.readlines()]
+
+    with open(processed_words_file, 'r') as processed_f:
+        processed_lines = [x.strip() for x in processed_f.readlines()]
+
+    # read dict file
+    with open(dictionary_file, 'r') as dict_f:
+        dict_lines = [x.strip() for x in dict_f.readlines()]
+
+    print "previously processed %i/%i words, got %i videos" % (len(processed_lines), len(dict_lines), len(all_video_ids))
 
 
-            limit = 100
 
-            for l in lines:
-                results = youtube_search(l)
+    with open(output_videos_file, 'a+') as vids_f:
+        with open(processed_words_file, 'a+') as processed_f:
+
+            searches_count = 0      
+
+            save_every = 50
+
+            started_time = time()
+
+            print "started time: %f" % started_time
+
+
+            for l in dict_lines:
+                l = l.strip()
+
+                print l
+                if l in processed_lines:
+                    continue
+
+                try:
+                    results = youtube_search(l)
+                except Exception as ex:
+                    print "Exception: "+str(ex)
+                    break
+
                 video_ids = [x["id"]["videoId"] for x in results if x["id"]["videoId"] not in all_video_ids]
 
                 for vid_id in video_ids:
-                    out_f.write("%s\n" % vid_id)
+                    vids_f.write("%s\n" % vid_id)
 
-                out_f.flush()
 
+                if searches_count % save_every == 0:
+                    print "FLUSH"
+                    # flush video ids
+                    vids_f.flush()
+                    os.fsync(vids_f.fileno())
+
+                    # flush processed
+                    processed_f.write("%s\n" % l)
+                    processed_f.flush()
+                    os.fsync(processed_f.fileno())
+
+                    print "FLUSHED"
 
                 all_video_ids += video_ids
-                total_ids_found += len(results)
+              
                 searches_count += 1
-                print "%i searches, %i videos found, avg videos per query: %.2f " % (searches_count, total_ids_found, float(total_ids_found) / searches_count)
 
-                #if searches_count > limit:
-                #    break
+                elapsed_time = time() - started_time
 
-            print all_video_ids
+                print "elapsed_time: %f" % elapsed_time
+
+                print "%i searches, %i videos found, seconds per dict word: %.2f" % (searches_count, len(all_video_ids), elapsed_time/searches_count)
+
+                    
+
+                
 
 
 
