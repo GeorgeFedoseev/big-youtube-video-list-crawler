@@ -158,7 +158,7 @@ if __name__ == "__main__":
 
                 print "elapsed_time: %f" % elapsed_time
 
-                print "%i searches, %i videos found, seconds per dict word: %.2f" % (searches_count, len(all_video_ids), elapsed_time/searches_count)
+                print "%i searches, %i videos found, seconds per dict word: %.2f" % (len(processed_lines) + searches_count, len(all_video_ids), elapsed_time/searches_count)
 
                     
 
