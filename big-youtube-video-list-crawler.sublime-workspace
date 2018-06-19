@@ -4,6 +4,54 @@
 		"selected_items":
 		[
 			[
+				"starte",
+				"started_time\tstatement"
+			],
+			[
+				"time",
+				"timeit\tfunction"
+			],
+			[
+				"save",
+				"save_every\tstatement"
+			],
+			[
+				"all",
+				"all_video_ids\tstatement"
+			],
+			[
+				"dic",
+				"dict_lines\tstatement"
+			],
+			[
+				"proce",
+				"processed_lines\tstatement"
+			],
+			[
+				"pro",
+				"processed_f"
+			],
+			[
+				"for",
+				"format\tfunction"
+			],
+			[
+				"vid",
+				"vid_id\tstatement"
+			],
+			[
+				"video",
+				"video_ids\tstatement"
+			],
+			[
+				"sear",
+				"search_result\tstatement"
+			],
+			[
+				"yo",
+				"youtube_search\tfunction"
+			],
+			[
 				"tota",
 				"total_speech_bytes\tstatement"
 			],
@@ -92,10 +140,6 @@
 				"print\tkeyword"
 			],
 			[
-				"video",
-				"video_title\tparam"
-			],
-			[
 				"media",
 				"media_name"
 			],
@@ -110,10 +154,6 @@
 			[
 				"copy",
 				"copy_count\tstatement"
-			],
-			[
-				"all",
-				"all_out_rows\tstatement"
 			],
 			[
 				"out",
@@ -142,10 +182,6 @@
 			[
 				"match",
 				"matches"
-			],
-			[
-				"sear",
-				"search_results"
 			],
 			[
 				"du",
@@ -230,10 +266,6 @@
 			[
 				"res",
 				"results\tstatement"
-			],
-			[
-				"pro",
-				"project_root_path\tstatement"
 			],
 			[
 				"tra",
@@ -482,43 +514,37 @@
 			[
 				"Language",
 				"LanguageTool"
-			],
-			[
-				"langu",
-				"language_check\tmodule"
-			],
-			[
-				"No",
-				"None\tinstance"
-			],
-			[
-				"label",
-				"label_length\tstatement"
-			],
-			[
-				"totall",
-				"total_label_length\tstatement"
-			],
-			[
-				"total",
-				"total_levenshtein\tstatement"
-			],
-			[
-				"labe",
-				"label_length\tstatement"
-			],
-			[
-				"modelf",
-				"model_feeder\tstatement"
-			],
-			[
-				"model",
-				"model_feeder"
 			]
 		]
 	},
 	"buffers":
 	[
+		{
+			"file": "youtube_video_searcher.py",
+			"settings":
+			{
+				"buffer_size": 4539,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "youtube-rus-videos-with-subs-18Jun2018.txt",
+			"settings":
+			{
+				"buffer_size": 3067452,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "processed_words.txt",
+			"settings":
+			{
+				"buffer_size": 299265,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		}
 	],
 	"build_system": "",
 	"build_system_choices":
@@ -588,6 +614,13 @@
 	],
 	"file_history":
 	[
+		"/Users/gosha/Projects/big-youtube-video-list-crawler/word_rus.txt",
+		"/Users/gosha/Projects/big-youtube-video-list-crawler/processed_words.txt",
+		"/Users/gosha/Projects/big-youtube-video-list-crawler/yt_rus_vids.txt",
+		"/Users/gosha/Projects/big-youtube-video-list-crawler/yt_rus_vids-2018-06-15 02:21:13.txt",
+		"/Users/gosha/Projects/big-youtube-video-list-crawler/yt_rus_vids-2018-06-15 02:19:10.txt",
+		"/Users/gosha/Projects/big-youtube-video-list-crawler/requirements.txt",
+		"/Users/gosha/Projects/big-youtube-video-list-crawler/big-youtube-video-list-crawler.sublime-project",
 		"/Users/gosha/Projects/youtube-audio-captions-parsing/youtube_video_searcher_topic.py",
 		"/Users/gosha/Projects/youtube-audio-captions-parsing/csv_data/videos_to_process.csv",
 		"/Users/gosha/Projects/youtube-audio-captions-parsing/csv_data/videos_processing.csv",
@@ -708,14 +741,7 @@
 		"/Users/gosha/Projects/DeepSpeech/util/automation.py",
 		"/Users/gosha/Projects/DeepSpeech/bin/run-voxforge-ru.sh",
 		"/Users/gosha/Projects/DeepSpeech/native_client/BUILD",
-		"/Users/gosha/Projects/DeepSpeech/native_client/Makefile",
-		"/Users/gosha/Projects/DeepSpeech/Dockerfile_bckup",
-		"/Users/gosha/Projects/DeepSpeech/bin/import_librivox.py",
-		"/Users/gosha/Projects/DeepSpeech/bin/import_voxforge.py",
-		"/Users/gosha/Projects/DeepSpeech/util/taskcluster.py",
-		"/Users/gosha/Projects/youtube-audio-captions-parsing/example_keywords.txt",
-		"/Users/gosha/Desktop/host_install.txt",
-		"/Users/gosha/Projects/youtube-audio-captions-parsing/yt.sublime-workspace"
+		"/Users/gosha/Projects/DeepSpeech/native_client/Makefile"
 	],
 	"find":
 	{
@@ -733,6 +759,9 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"сострачиваниесостригание",
+			"состязание",
+			"кагор"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -750,8 +779,116 @@
 	"groups":
 	[
 		{
+			"selected": 1,
 			"sheets":
 			[
+				{
+					"buffer": 0,
+					"file": "youtube_video_searcher.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 4539,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								3774,
+								3774
+							]
+						],
+						"settings":
+						{
+							"auto_complete_triggers":
+							[
+								{
+									"characters": ".",
+									"selector": "source.python - string - comment - constant.numeric"
+								},
+								{
+									"characters": ".",
+									"selector": "source.python - string - constant.numeric"
+								}
+							],
+							"show_definitions": false,
+							"syntax": "Packages/Python/Python.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 1827.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "youtube-rus-videos-with-subs-18Jun2018.txt",
+					"semi_transient": true,
+					"settings":
+					{
+						"buffer_size": 3067452,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								227,
+								227
+							]
+						],
+						"settings":
+						{
+							"WordCount":
+							{
+								"changes": 0,
+								"count": 289482,
+								"modified": false,
+								"selection": false,
+								"status": -1,
+								"syntax": "plain text"
+							},
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "processed_words.txt",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 299265,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								297749,
+								297749
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 418011.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				}
 			]
 		}
 	],
@@ -794,7 +931,7 @@
 	{
 		"height": 0.0
 	},
-	"pinned_build_system": "Anaconda Python Builder",
+	"pinned_build_system": "venv Builder",
 	"project": "big-youtube-video-list-crawler.sublime-project",
 	"replace":
 	{
